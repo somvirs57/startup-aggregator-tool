@@ -1,0 +1,11 @@
+{
+  "name": "startup-aggregator",
+  "version": "1.0.0",
+  "description": "Backend for startup aggregator tool",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "somveer singh",
+  "license": "ISC"
+}
