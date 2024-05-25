@@ -2,7 +2,19 @@ const Sequelize = require("sequelize");
 const { sequelize } = require("../config/db.config");
 
 // db initailization using sequelize
-const User = require("./user.model")(sequelize, Sequelize.DataTypes);
+const User = require("./Users/User.model")(sequelize, Sequelize.DataTypes);
+const EntrepreneurProfile = require("./Users/EntrepreneurProfile.model")(
+  sequelize,
+  Sequelize.DataTypes
+);
+const MentorProfile = require("./Users/MentorProfile.model")(
+  sequelize,
+  Sequelize.DataTypes
+);
+const InvestorProfile = require("./Users/InvestorProfile.model")(
+  sequelize,
+  Sequelize.DataTypes
+);
 
 const syncModels = async () => {
   try {
@@ -13,8 +25,19 @@ const syncModels = async () => {
   }
 };
 
-module.exports = {
+const db = {
   User,
+  EntrepreneurProfile,
+  MentorProfile,
+  InvestorProfile,
   sequelize,
   syncModels,
 };
+
+Object.keys(db).forEach((modelName) => {
+  if (db[modelName].associate) {
+    db[modelName].associate(db);
+  }
+});
+
+module.exports = db;
