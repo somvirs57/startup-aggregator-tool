@@ -1,5 +1,4 @@
 import { Form, Input, Button } from 'antd';
-import { GoogleOutlined, FacebookOutlined } from '@ant-design/icons';
 
 const Login = () => {
   const onFinish = (values) => {
