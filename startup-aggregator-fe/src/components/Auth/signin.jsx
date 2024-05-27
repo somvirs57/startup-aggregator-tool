@@ -1,14 +1,13 @@
 import { Form, Input, Button } from "antd";
+import { RightSide } from "./rightSide";
 
-const Login = () => {
-  const onFinish = (values) => {
-    console.log("Success:", values);
-  };
+// eslint-disable-next-line react/prop-types
+const SignIn = ({onFinish}) => {
+
 
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
-
   return (
     <div className="grid grid-cols-2 gap-10 h-full">
       {/* Left side - Form */}
@@ -46,11 +45,11 @@ const Login = () => {
                 Login
               </Button>
               {/* <Button type="default" icon={<GoogleOutlined />} className="w-full mb-2">
-                Continue with Google
-              </Button>
-              <Button type="default" icon={<FacebookOutlined />} className="w-full">
-                Continue with Facebook
-              </Button> */}
+                  Continue with Google
+                </Button>
+                <Button type="default" icon={<FacebookOutlined />} className="w-full">
+                  Continue with Facebook
+                </Button> */}
             </Form.Item>
           </Form>
           <div className="flex justify-between mt-4">
@@ -65,20 +64,8 @@ const Login = () => {
       </div>
 
       {/* Right side - Marketing text */}
-      <div className="w-full flex flex-col justify-center items-center bg-gradient-to-r from-blue-400 to-purple-500 text-white">
-        <div className="max-w-md w-full text-center">
-          <h2 className="text-4xl font-bold mb-4">
-            Join over 62,000+ Digital marketers and business owners around the
-            world
-          </h2>
-          <p>
-            One morning, when Gregor Samsa woke from troubled dreams, he found
-            himself transformed in his bed into a horrible vermin.
-          </p>
-        </div>
-      </div>
+      <RightSide />
     </div>
   );
 };
-
-export default Login;
+export { SignIn };
