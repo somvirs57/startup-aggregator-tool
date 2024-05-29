@@ -1,8 +1,9 @@
-import { Form, Input, Button, Select } from "antd";
+import { Form, Input, Select } from "antd";
 import { useState } from "react";
 import { RightSide } from "./rightSide";
 import { RoleSelect } from "./roleSelect";
 import { startupName } from "../../../jsone/masterData";
+import { Button } from "../helper";
 const { Option } = Select;
 
 // eslint-disable-next-line react/prop-types
@@ -227,9 +228,9 @@ const SignUp = ({ onFinish }) => {
 
             {role === "investor" && <Investor />}
             <Form.Item>
-              <Button type="primary" htmlType="submit" className="w-full mb-4">
-                Sign Up
-              </Button>
+            <Button>
+             Sign Up
+             </Button>
             </Form.Item>
           </Form>
           <div className="flex justify-center mt-4">

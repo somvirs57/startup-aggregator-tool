@@ -1,5 +1,5 @@
-import { postMethod } from "../http-client/http-services";
-import { SignIn } from "./components/Auth/signin";
+import { postMethod } from "../../../http-client/http-services";
+import { SignIn } from "../../components/auth";
 
 export default function Signin() {
     const getFormData = async (value) => {

@@ -5,3 +5,28 @@
 #root{
   height: 100vh;
 }
+
+
+/* width */
+.sigin-form::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.sigin-form::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+  border-radius: 12px;
+
+}
+ 
+/* Handle */
+.sigin-form::-webkit-scrollbar-thumb {
+  background: #c5c5c5; 
+  border-radius: 12px;
+
+}
+
+/* Handle on hover */
+.sigin-form::-webkit-scrollbar-thumb:hover {
+  background: #b9b9b9; 
+}

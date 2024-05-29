@@ -9,10 +9,11 @@ import {
 } from '@ant-design/icons';
 import { Outlet, Link } from 'react-router-dom';
 import { useState } from 'react';
+import { Card } from '../../components/helper';
 
 const { Header, Sider, Content } = Layout;
 
-const DashboardLayout = () => {
+const Dashboard = () => {
   const [collapsed, setCollapsed] = useState(false);
 
   const toggle = () => {
@@ -53,10 +54,11 @@ const DashboardLayout = () => {
           }}
         >
           <Outlet />
+          <Card title={'Hi'} description={'Hello'} imageSrc={'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png'}/>
         </Content>
       </Layout>
     </Layout>
   );
 };
 
-export default DashboardLayout;
+export default Dashboard;

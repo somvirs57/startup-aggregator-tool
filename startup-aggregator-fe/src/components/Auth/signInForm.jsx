@@ -1,5 +1,6 @@
-import { Form, Input, Button } from "antd";
+import { Form, Input } from "antd";
 import { RightSide } from "./rightSide";
+import { Button } from "../helper";
 
 // eslint-disable-next-line react/prop-types
 const SignIn = ({onFinish}) => {
@@ -41,9 +42,9 @@ const SignIn = ({onFinish}) => {
             </Form.Item>
 
             <Form.Item>
-              <Button type="primary" htmlType="submit" className="w-full mb-4">
-                Login
-              </Button>
+             <Button>
+             Sign In
+             </Button>
               {/* <Button type="default" icon={<GoogleOutlined />} className="w-full mb-2">
                   Continue with Google
                 </Button>
