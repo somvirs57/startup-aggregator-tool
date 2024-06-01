@@ -1,63 +1,41 @@
-import { Layout, Menu, Button } from 'antd';
-import {
-  LeftOutlined,
-  RightOutlined ,
-  DashboardOutlined,
-  AppstoreOutlined,
-  FileOutlined,
-  SettingOutlined,
-} from '@ant-design/icons';
-import { Outlet, Link } from 'react-router-dom';
-import { useState } from 'react';
-import { Card } from '../../components/helper';
+import { Card } from "antd";
+import { SideMenu } from "../../components/helper";
+import { ReadOutlined, FileTextOutlined, AppstoreOutlined, TeamOutlined } from '@ant-design/icons';
 
-const { Header, Sider, Content } = Layout;
-
+const data = {
+  blogs: 10,
+  articles: 5,
+  guides: 7,
+  community: 15,
+};
 const Dashboard = () => {
-  const [collapsed, setCollapsed] = useState(false);
-
-  const toggle = () => {
-    setCollapsed(!collapsed);
-  };
+  const breadCrumb = [
+    { title: 'Dashboard' }
+  ];
 
   return (
-    <Layout style={{ minHeight: '100vh' }}>
-      <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div className="logo" style={{ height: '32px', margin: '16px', background: 'rgba(255, 255, 255, 0.2)' }} />
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-          <Menu.Item key="1" icon={<DashboardOutlined />}>
-            <Link to="/dashboard">Dashboard</Link>
-          </Menu.Item>
-          <Menu.Item key="2" icon={<AppstoreOutlined />}>
-            <Link to="/applications">Applications</Link>
-          </Menu.Item>
-          <Menu.Item key="3" icon={<FileOutlined />}>
-            <Link to="/pages">Pages</Link>
-          </Menu.Item>
-          <Menu.Item key="4" icon={<SettingOutlined />}>
-            <Link to="/settings">Settings</Link>
-          </Menu.Item>
-        </Menu>
-      </Sider>
-      <Layout className="site-layout">
-        <Header className="site-layout-background" style={{ padding: 0, background: '#fff' }}>
-          <Button type="primary" className='flex justify-center items-center m-4' onClick={toggle} >
-            {collapsed ? <LeftOutlined /> :<RightOutlined />}
-          </Button>
-        </Header>
-        <Content
-          className="site-layout-background"
-          style={{
-            margin: '24px 16px',
-            padding: 24,
-            minHeight: 280,
-          }}
-        >
-          <Outlet />
-          <Card title={'Hi'} description={'Hello'} imageSrc={'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png'}/>
-        </Content>
-      </Layout>
-    </Layout>
+    <SideMenu breadCrumb={breadCrumb}>
+    <div className="dashboard-content">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <Card className="shadow rounded-lg" title="Blogs" bordered={false}>
+            <ReadOutlined style={{ fontSize: '2rem' }} />
+            <p className="text-2xl font-semibold">{data.blogs}</p>
+          </Card>
+          <Card className="shadow rounded-lg" title="Articles" bordered={false}>
+            <FileTextOutlined style={{ fontSize: '2rem' }} />
+            <p className="text-2xl font-semibold">{data.articles}</p>
+          </Card>
+          <Card className="shadow rounded-lg" title="Guides" bordered={false}>
+            <AppstoreOutlined style={{ fontSize: '2rem' }} />
+            <p className="text-2xl font-semibold">{data.guides}</p>
+          </Card>
+          <Card className="shadow rounded-lg" title="Community" bordered={false}>
+            <TeamOutlined style={{ fontSize: '2rem' }} />
+            <p className="text-2xl font-semibold">{data.community}</p>
+          </Card>
+        </div>
+      </div>
+    </SideMenu>
   );
 };
 

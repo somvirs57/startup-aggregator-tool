@@ -1,14 +1,24 @@
+/* eslint-disable react/prop-types */
 import { Button as AndDButton } from "antd";
 
-// eslint-disable-next-line react/prop-types
-const Button = ({ type = "primary", htmlType = "submit", children, onClick }) => {
+const Button = ({
+  type = "primary",
+  htmlType = "submit",
+  children,
+  onClick,
+  href,
+  className,
+  res,
+}) => {
   return (
     <AndDButton
       type={type}
+      href={href}
       htmlType={htmlType}
       onClick={onClick}
       size="middle"
-      className="w-full"
+      className={className}
+      {...res}
     >
       {children}
     </AndDButton>

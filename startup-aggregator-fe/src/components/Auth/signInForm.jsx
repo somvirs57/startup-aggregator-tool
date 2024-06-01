@@ -1,11 +1,9 @@
-import { Form, Input } from "antd";
+import { Form, Input, Skeleton } from "antd";
 import { RightSide } from "./rightSide";
 import { Button } from "../helper";
 
 // eslint-disable-next-line react/prop-types
-const SignIn = ({onFinish}) => {
-
-
+const SignIn = ({ onFinish, isLaoding }) => {
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
@@ -42,9 +40,11 @@ const SignIn = ({onFinish}) => {
             </Form.Item>
 
             <Form.Item>
-             <Button>
-             Sign In
-             </Button>
+              {isLaoding ? (
+                <Skeleton active />
+              ) : (
+                <Button className="w-full">Sign In</Button>
+              )}
               {/* <Button type="default" icon={<GoogleOutlined />} className="w-full mb-2">
                   Continue with Google
                 </Button>
